@@ -1,39 +1,86 @@
 function RecentAssets() {
+
+    const assets =
+        JSON.parse(localStorage.getItem("assets")) || [];
+
     return (
-        <div style={{ marginTop: "30px" }}>
+
+        <div
+            style={{
+                background: "white",
+                marginTop: "35px",
+                padding: "25px",
+                borderRadius: "15px",
+                boxShadow: "0 8px 20px rgba(0,0,0,.08)"
+            }}
+        >
+
             <h2>Recent Assets</h2>
 
-            <table border="1" cellPadding="10">
+            <table width="100%">
+
                 <thead>
+
                     <tr>
+
                         <th>Asset</th>
+
                         <th>Department</th>
+
                         <th>Status</th>
+
                     </tr>
+
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Dell Latitude 5430</td>
-                        <td>IT</td>
-                        <td>Assigned</td>
-                    </tr>
 
-                    <tr>
-                        <td>HP LaserJet Printer</td>
-                        <td>HR</td>
-                        <td>Available</td>
-                    </tr>
+                    {
 
-                    <tr>
-                        <td>Lenovo ThinkCentre</td>
-                        <td>Finance</td>
-                        <td>Maintenance</td>
-                    </tr>
+                        assets.slice(0, 5).map(asset => (
+
+                            <tr key={asset.id}>
+
+                                <td>{asset.assetName}</td>
+
+                                <td>{asset.department}</td>
+
+                                <td>
+
+                                    <span
+                                        style={{
+                                            background:
+                                                asset.status === "Available"
+                                                    ? "green" : "orange",
+
+                                            color: "white",
+
+                                            padding: "6px 12px",
+
+                                            borderRadius: "20px"
+                                        }}
+                                    >
+
+                                        {asset.status}
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                        ))
+
+                    }
+
                 </tbody>
+
             </table>
+
         </div>
+
     );
+
 }
 
 export default RecentAssets;
