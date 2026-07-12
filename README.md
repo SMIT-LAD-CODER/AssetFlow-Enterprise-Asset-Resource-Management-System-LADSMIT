@@ -1,113 +1,158 @@
 <div align="center">
 
 # 🚀 AssetFlow
-### Enterprise Asset & Resource Management System
+
+## Enterprise Asset & Employee Management Platform
 
 <img src="https://img.shields.io/badge/Odoo-Hackathon%202026-714B67?style=for-the-badge&logo=odoo&logoColor=white"/>
-<img src="https://img.shields.io/badge/Status-In%20Development-success?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+<img src="https://img.shields.io/badge/Status-Active%20Development-success?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge"/>
 
----
+<br/>
 
-### 📦 Track • Allocate • Maintain • Audit • Manage
+### 📦 Track • Assign • Manage • Monitor
 
-*A modern ERP solution for managing enterprise assets and shared resources.*
+A modern ERP-inspired solution for managing employees, company assets, and resource allocation.
 
 </div>
 
 ---
 
-# 📖 About The Project
+# 📖 About AssetFlow
 
-AssetFlow is a full-stack Enterprise Asset & Resource Management System developed for the **Odoo Hackathon 2026**.
+**AssetFlow** is an Enterprise Asset & Resource Management System developed for **Odoo Hackathon 2026**.
 
-The system helps organizations manage company assets, assign resources to employees, schedule maintenance, monitor asset lifecycles, and handle resource bookings through a centralized ERP platform.
+The platform helps organizations maintain complete visibility over their assets and employees through a centralized management system.
 
-Unlike spreadsheet-based asset tracking, AssetFlow provides a structured workflow with role-based access, real-time asset status, and an intuitive dashboard.
+Instead of depending on spreadsheets and manual records, AssetFlow provides a structured workflow to:
+
+* Manage employees
+* Track company assets
+* Assign resources
+* Monitor asset availability
+* Maintain organized enterprise records
 
 ---
 
 # 🎯 Problem Statement
 
-Many organizations still manage assets manually using Excel sheets or paper records.
+Organizations often struggle with:
 
-This results in:
+❌ Manual Excel-based asset tracking
+❌ Difficulty knowing who owns which asset
+❌ Poor resource visibility
+❌ Duplicate asset allocation
+❌ Lack of centralized employee-resource management
 
-- Lost assets
-- Duplicate allocations
-- Poor maintenance tracking
-- No centralized visibility
-- Resource booking conflicts
-
-AssetFlow solves these challenges with a centralized web application.
+AssetFlow provides a digital solution to simplify asset operations.
 
 ---
 
-# ✨ Features
+# ✨ Current Features
 
 ## 🔐 Authentication
 
-- Login
-- Forgot Password
-- Session Validation
+✅ User Login System
+✅ Protected Application Flow
+✅ User Session Handling
 
 ---
 
-## 🏢 Organization Setup
+# 👥 Employee Management
 
-- Department Management
-- Employee Directory
-- Asset Categories
+Complete employee CRUD system:
 
----
+✅ Add Employees
+✅ View Employee Directory
+✅ Edit Employee Details
+✅ Delete Employees
+✅ Search Employees
+✅ Persistent Data Storage
 
-## 📦 Asset Management
+Employee information includes:
 
-- Register Assets
-- Update Asset Details
-- Delete Assets
-- Search & Filter
-- QR/Asset Tag Search
-- Asset Lifecycle Tracking
-
----
-
-## 👨‍💼 Asset Allocation
-
-- Allocate Assets
-- Transfer Assets
-- Return Assets
-- Conflict Validation
-- Allocation History
+* Name
+* Email
+* Phone
+* Department
+* Designation
 
 ---
 
-## 📅 Resource Booking
+# 📦 Asset Management
 
-- Book Meeting Rooms
-- Book Vehicles
-- Time Slot Validation
-- Calendar View
+Current asset workflow:
+
+✅ Add Assets
+✅ Update Asset Details
+✅ Delete Assets
+✅ Search Assets
+✅ Track Asset Status
+✅ Department-based Asset Management
+
+Asset information includes:
+
+* Asset Name
+* Category
+* Department
+* Status
 
 ---
 
-## 🔧 Maintenance
+# 🔗 Asset Allocation System
 
-- Raise Maintenance Request
-- Approval Workflow
-- Technician Assignment
-- Maintenance History
+Coming Core Feature:
+
+⬜ Assign assets to employees
+⬜ Track asset ownership
+⬜ Transfer assets
+⬜ Asset history tracking
 
 ---
 
-## 📊 Dashboard
+# 📊 Dashboard Analytics
 
-- Available Assets
-- Allocated Assets
-- Active Bookings
-- Pending Maintenance
-- Upcoming Returns
-- KPI Cards
+Planned dashboard:
+
+* Total Employees
+* Total Assets
+* Assigned Assets
+* Available Assets
+* Department Statistics
+* Resource Overview
+
+---
+
+# 🏗️ Application Architecture
+
+```text
+AssetFlow
+
+Frontend (React.js)
+
+        |
+        |
+        ↓
+
+Components
+ ├── Navbar
+ ├── Sidebar
+ └── Reusable UI Components
+
+
+Pages
+
+ ├── Login
+ ├── Dashboard
+ ├── Employees
+ └── Assets
+
+
+Data Layer
+
+ └── Local Storage
+```
 
 ---
 
@@ -115,142 +160,140 @@ AssetFlow solves these challenges with a centralized web application.
 
 ## Frontend
 
-- React.js
-- Tailwind CSS
-- React Router
+| Technology   | Purpose           |
+| ------------ | ----------------- |
+| React.js     | User Interface    |
+| React Router | Navigation        |
+| JavaScript   | Application Logic |
+| CSS          | Styling           |
 
-## Backend
+---
 
-- Node.js
-- Express.js
+## Development Tools
 
-## Database
-
-- PostgreSQL
-
-## Version Control
-
-- Git
-- GitHub
+| Tool    | Purpose                 |
+| ------- | ----------------------- |
+| Git     | Version Control         |
+| GitHub  | Code Repository         |
+| VS Code | Development Environment |
 
 ---
 
 # 📂 Project Structure
 
 ```text
-assetflow/
+AssetFlow/
 
-├── client/
-│   ├── components/
-│   ├── pages/
-│   ├── layouts/
-│   ├── services/
-│   └── assets/
 │
-├── server/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   └── utils/
+├── src/
 │
-├── docs/
-├── README.md
-└── .gitignore
+├── components/
+│   ├── Navbar.jsx
+│   └── Sidebar.jsx
+│
+├── pages/
+│   ├── Login.jsx
+│   ├── Dashboard.jsx
+│   ├── Employees.jsx
+│   └── Assets.jsx
+│
+├── App.jsx
+├── main.jsx
+│
+├── package.json
+└── README.md
 ```
 
 ---
 
-# 👥 User Roles
+# 🚀 Development Roadmap
 
-### 👑 Admin
+## Completed ✅
 
-- Manage Departments
-- Manage Employees
-- Assign Roles
-- View Analytics
+* [x] React project setup
+* [x] Application routing
+* [x] Login page
+* [x] Dashboard layout
+* [x] Sidebar navigation
+* [x] Employee Management CRUD
+* [x] Asset Management CRUD
+* [x] Search functionality
+* [x] Edit/Delete operations
 
-### 📦 Asset Manager
+## In Progress 🔥
 
-- Register Assets
-- Allocate Assets
-- Approve Transfers
-- Manage Maintenance
+* [ ] Asset assignment workflow
+* [ ] Dashboard analytics
+* [ ] Improved authentication
+* [ ] Better data management
 
-### 👨‍💻 Employee
+## Future Enhancements 🚀
 
-- View Assigned Assets
-- Book Resources
-- Raise Maintenance Requests
-- Request Transfers
-
----
-
-# 🚀 Roadmap
-
-- [x] Project Planning
-- [ ] React Frontend
-- [ ] Node.js Backend
-- [ ] PostgreSQL Integration
-- [ ] Asset Management
-- [ ] Employee Directory
-- [ ] Resource Booking
-- [ ] Maintenance Workflow
-- [ ] Dashboard
-- [ ] Notifications
-- [ ] Deployment
+* [ ] Backend API
+* [ ] Database integration
+* [ ] Role-based access control
+* [ ] QR code asset tracking
+* [ ] Notifications
+* [ ] Maintenance workflow
+* [ ] Deployment
 
 ---
 
-# 📸 Screenshots
+# 🎥 Demo Preview
 
-Coming Soon...
+Screenshots and demo video coming soon.
 
 ---
 
 # 👨‍💻 Team
 
-| Name | Role |
-|------|------|
-| Your Name | Full Stack Developer |
-| Team Member 2 | Frontend |
-| Team Member 3 | Backend |
-| Team Member 4 | UI/UX |
+| Member      | Role                 |
+| ----------- | -------------------- |
+| Your Name   | Full Stack Developer |
+| Team Member | Frontend             |
+| Team Member | Backend              |
+| Team Member | UI/UX                |
 
 ---
 
-# 🤝 Contributing
+# 🤝 Contribution Workflow
 
-Every team member contributes using feature branches.
+Development follows feature-based branching:
 
-```
+```text
 main
+
 │
-├── feature/login
+
+├── feature/authentication
+
+├── feature/employees
+
 ├── feature/assets
+
 ├── feature/dashboard
-├── feature/booking
-└── feature/maintenance
+
+└── feature/ui-improvements
 ```
 
 ---
 
-# ⭐ Future Enhancements
+# ⭐ Vision
 
-- QR Code Scanner
-- Barcode Integration
-- Email Notifications
-- Mobile App
-- Asset Depreciation Reports
-- AI-powered Asset Recommendations
+AssetFlow aims to become a complete enterprise resource management platform where organizations can easily manage:
+
+🚀 People
+📦 Assets
+📊 Resources
+🔧 Maintenance
+📅 Operations
 
 ---
 
 <div align="center">
 
-### 🚀 Built with ❤️ for Odoo Hackathon 2026
+## 🚀 Built with ❤️ for Odoo Hackathon 2026
 
-**"Simplifying Enterprise Asset Management."**
+### "Simplifying Enterprise Asset Management"
 
 </div>
