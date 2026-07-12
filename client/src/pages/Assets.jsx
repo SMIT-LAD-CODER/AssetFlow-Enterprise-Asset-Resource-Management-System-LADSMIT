@@ -5,7 +5,21 @@ function Assets() {
     const [category, setCategory] = useState("");
     const [department, setDepartment] = useState("");
 
-    const [assets, setAssets] = useState([]);
+    const [assets, setAssets] = useState([{
+        id: 1,
+        assetName: "Dell Latitude 5430",
+        category: "Laptop",
+        department: "IT",
+        status: "Assigned",
+    },
+    {
+        id: 2,
+        assetName: "HP LaserJet Pro",
+        category: "Printer",
+        department: "HR",
+        status: "Available",
+    },]);
+    const [search, setSearch] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -65,6 +79,17 @@ function Assets() {
             </form>
 
             <hr />
+            <input
+                type="text"
+                placeholder="Search Asset..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                style={{
+                    padding: "10px",
+                    width: "300px",
+                    marginBottom: "20px",
+                }}
+            />
 
             <h2>Asset List</h2>
 
@@ -75,18 +100,32 @@ function Assets() {
                         <th>Category</th>
                         <th>Department</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    {assets.map((asset) => (
-                        <tr key={asset.id}>
-                            <td>{asset.assetName}</td>
-                            <td>{asset.category}</td>
-                            <td>{asset.department}</td>
-                            <td>{asset.status}</td>
-                        </tr>
-                    ))}
+                    {assets
+                        .filter((asset) =>
+                            asset.assetName.toLowerCase().includes(search.toLowerCase())
+                        )
+                        .map((asset) => (
+                            <tr key={asset.id}>
+                                <td>{asset.assetName}</td>
+                                <td>{asset.category}</td>
+                                <td>{asset.department}</td>
+                                <td>{asset.status}</td>
+                                <td>
+                                    <button
+                                        onClick={() =>
+                                            setAssets(assets.filter((a) => a.id !== asset.id))
+                                        }
+                                    >
+                                        🗑 Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
         </div>
