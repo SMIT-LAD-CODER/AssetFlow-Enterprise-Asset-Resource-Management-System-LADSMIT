@@ -19,6 +19,8 @@ function Assets() {
         department: "HR",
         status: "Available",
     },]);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editId, setEditId] = useState(null);
     const [search, setSearch] = useState("");
 
     const handleSubmit = (e) => {
@@ -29,15 +31,33 @@ function Assets() {
             return;
         }
 
-        const newAsset = {
-            id: Date.now(),
-            assetName,
-            category,
-            department,
-            status: "Available",
-        };
+        if (isEditing) {
+            const updatedAssets = assets.map((asset) =>
+                asset.id === editId
+                    ? {
+                        ...asset,
+                        assetName,
+                        category,
+                        department,
+                    }
+                    : asset
+            );
 
-        setAssets([...assets, newAsset]);
+            setAssets(updatedAssets);
+            setIsEditing(false);
+            setEditId(null);
+
+        } else {
+            const newAsset = {
+                id: Date.now(),
+                assetName,
+                category,
+                department,
+                status: "Available",
+            };
+
+            setAssets([...assets, newAsset]);
+        }
 
         setAssetName("");
         setCategory("");
@@ -74,7 +94,7 @@ function Assets() {
                 <br /><br />
 
                 <button type="submit">
-                    Add Asset
+                    {isEditing ? "Update Asset" : "Add Asset"}
                 </button>
             </form>
 
@@ -117,9 +137,23 @@ function Assets() {
                                 <td>{asset.status}</td>
                                 <td>
                                     <button
+                                        onClick={() => {
+                                            setAssetName(asset.assetName);
+                                            setCategory(asset.category);
+                                            setDepartment(asset.department);
+
+                                            setEditId(asset.id);
+                                            setIsEditing(true);
+                                        }}
+                                    >
+                                        ✏ Edit
+                                    </button>
+
+                                    <button
                                         onClick={() =>
                                             setAssets(assets.filter((a) => a.id !== asset.id))
                                         }
+                                        style={{ marginLeft: "10px" }}
                                     >
                                         🗑 Delete
                                     </button>
