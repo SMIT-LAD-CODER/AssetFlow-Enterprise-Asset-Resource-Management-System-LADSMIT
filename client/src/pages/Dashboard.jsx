@@ -1,5 +1,6 @@
 import DashboardCard from "../components/DashboardCard";
-
+import RecentAssets from "../components/RecentAssets";
+import QuickActions from "../components/QuickActions";
 function Dashboard() {
     return (
         <div style={{ padding: "30px" }}>
@@ -40,6 +41,10 @@ function Dashboard() {
                 />
 
             </div>
+
+            <RecentAssets />
+
+            <QuickActions />
 
         </div>
     );
