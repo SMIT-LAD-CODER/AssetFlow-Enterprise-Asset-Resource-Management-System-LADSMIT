@@ -1,18 +1,46 @@
+import { Routes, Route } from "react-router-dom";
+
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Assets from "./pages/Assets";
+
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <>
-      <Navbar />
+    <Routes>
+      {/* Login Page */}
+      <Route path="/" element={<Login />} />
 
-      <div style={{ display: "flex" }}>
-        <Sidebar />
+      {/* Dashboard */}
+      <Route
+        path="/dashboard"
+        element={
+          <>
+            <Navbar />
+            <div style={{ display: "flex" }}>
+              <Sidebar />
+              <Dashboard />
+            </div>
+          </>
+        }
+      />
 
-        <Dashboard />
-      </div>
-    </>
+      {/* Assets Page */}
+      <Route
+        path="/assets"
+        element={
+          <>
+            <Navbar />
+            <div style={{ display: "flex" }}>
+              <Sidebar />
+              <Assets />
+            </div>
+          </>
+        }
+      />
+    </Routes>
   );
 }
 
