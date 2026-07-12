@@ -3,6 +3,10 @@ import RecentAssets from "../components/RecentAssets";
 import QuickActions from "../components/QuickActions";
 import DashboardCharts from "../components/DashboardCharts";
 import ArthaMitraInsights from "../components/ArthaMitraInsights";
+import AIPriorityPanel from "../components/AIPriorityPanel";
+import PredictiveMaintenance from "../components/PredictiveMaintenance";
+
+import { analyzeEnterprise } from "../services/aiEngine";
 import {
     FaBoxOpen,
     FaUsers,
@@ -11,7 +15,7 @@ import {
 } from "react-icons/fa";
 
 function Dashboard() {
-
+    const ai = analyzeEnterprise();
     return (
 
         <div style={{ padding: "30px", background: "#f5f7fb", minHeight: "100vh" }}>
@@ -30,13 +34,13 @@ function Dashboard() {
 
                 <DashboardCard
                     title="Total Assets"
-                    value="120"
+                    value={ai.totalAssets}
                     icon={<FaBoxOpen size={28} />}
                 />
 
                 <DashboardCard
                     title="Employees"
-                    value="45"
+                    value={ai.totalEmployees}
                     icon={<FaUsers size={28} />}
                 />
 
@@ -54,7 +58,6 @@ function Dashboard() {
 
                 <DashboardCharts />
 
-                <ArthaMitraInsights />
 
             </div>
 
@@ -62,6 +65,12 @@ function Dashboard() {
 
             <RecentAssets />
 
+
+            <ArthaMitraInsights />
+
+            <AIPriorityPanel />
+
+            <PredictiveMaintenance />
 
 
         </div>

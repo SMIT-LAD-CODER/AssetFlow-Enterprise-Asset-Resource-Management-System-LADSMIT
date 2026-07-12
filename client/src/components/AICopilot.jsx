@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { FaRobot } from "react-icons/fa";
+import { analyzeEnterprise } from "../services/aiEngine";
+
 function AICopilot() {
 
+    const ai = analyzeEnterprise();
     const [open, setOpen] = useState(false);
 
     const [question, setQuestion] = useState("");
@@ -9,19 +12,19 @@ function AICopilot() {
     const getAnswer = () => {
 
         if (question.toLowerCase().includes("asset"))
-            return "📦 Total Assets : 120";
+            return `There are currently ${ai.totalAssets} assets in the organization.`;
 
         if (question.toLowerCase().includes("employee"))
-            return "👨 Employees : 45";
+            return `👨 Employees : ${ai.totalEmployees}`;
 
         if (question.toLowerCase().includes("booking"))
-            return "📅 Bookings : 18";
+            return `📅 Bookings : ${ai.totalBookings}`;
 
         if (question.toLowerCase().includes("maintenance"))
-            return "🛠 Maintenance Requests : 6";
+            return `🛠 Maintenance Requests : ${ai.totalMaintenanceRequests}`;
 
         if (question.toLowerCase().includes("department"))
-            return "🏢 Departments : 5";
+            return `🏢 Departments : ${ai.totalDepartments}`;
 
         return "🤖 I can answer questions about Assets, Employees, Bookings, Departments and Maintenance.";
     }

@@ -1,5 +1,7 @@
-function ArthaMitraInsights() {
+import { analyzeEnterprise } from "../services/aiEngine";
 
+function ArthaMitraInsights() {
+    const ai = analyzeEnterprise();
     const assets =
         JSON.parse(localStorage.getItem("assets")) || [];
 
